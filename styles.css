@@ -1,0 +1,846 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.example {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+
+/* Default light theme */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    background: #000; /* Fallback background color */
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+    transform: translateZ(-1px) scale(1.5);
+}
+
+.layer:nth-child(1) {
+    background: linear-gradient(135deg, #FF5F6D, #FFC371); /* Example vibrant colors */
+    animation: gradientAnimation 12s ease infinite;
+}
+
+.layer:nth-child(2) {
+    background: linear-gradient(225deg, #1D976C, #93F9B9); /* Example vibrant colors */
+    animation: gradientAnimation 18s ease infinite;
+}
+
+.layer:nth-child(3) {
+    background: linear-gradient(315deg, #FF6B6B, #F7F8F8); /* Example vibrant colors */
+    animation: gradientAnimation 20s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.shape1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 15%;
+    background: rgba(255, 95, 109, 0.5); /* Example vibrant color with opacity */
+    animation: float 8s infinite alternate;
+}
+
+.shape2 {
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 50%;
+    background: rgba(29, 151, 108, 0.5); /* Example vibrant color with opacity */
+    animation: float 10s infinite alternate;
+}
+
+.shape3 {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 70%;
+    background: rgba(255, 107, 107, 0.5); /* Example vibrant color with opacity */
+    animation: float 12s infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-30px) rotate(360deg);
+    }
+}
+
+
+
+/* Dark theme */
+body.dark-theme {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/*---------------SCROLLING ICONS-----------------*/
+
+#scrolling-icons {
+    overflow: hidden;
+    white-space: nowrap;
+    
+    padding: 20px 0;
+}
+
+.scrolling-container {
+    display: inline-block;
+    animation: scrollIcons 20s linear infinite;
+}
+
+.scrolling-container i {
+       
+    font-size: 2rem;
+    margin: 0 20px;
+}
+
+@keyframes scrollIcons {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/*--------------*/
+
+
+
+
+
+
+
+
+
+/* Specific elements, if needed */
+h1, h2, h3, h4, h5, h6 {
+    color: inherit; /* Inherit color from body */
+}
+
+p, a, li {
+    color: inherit; /* Inherit color from body */
+}
+
+/* Link color customization */
+a {
+    color: blue; /* Light theme link color */
+}
+
+body.dark-theme a {
+    color: lightblue; /* Dark theme link color */
+}
+
+#themeToggle {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    color: black;
+}
+
+body.dark-theme #themeToggle {
+    background-color: #333;
+    color: white;
+}
+
+
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin-left: 200px;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    color: #f75c4c; /* Highlight color */
+    font-weight: bold; /* Optional: make the active link bold */
+}
+
+header .btn {
+    background: #f75c4c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Progress Bar */
+#progressBarContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: #f75c4c;
+    transition: width 0.1s ease;
+}
+
+/* Sections */
+section {
+    padding: 50px 0;
+    margin-top: 100px;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-left: 150px; /* Adjusted margin for better alignment */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    white-space: nowrap;
+}
+
+.hero-content h1 span {
+    color: #686D76;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    color: #697565;
+}
+
+.hero-content p {
+    margin: 20px 0;
+    color: #424242;
+}
+
+.hero-content .btn {
+    padding: 10px 20px;
+    background: #f75c4c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero-content .social-links a {
+    margin-right: 10px;
+    color: #333;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.hero-content .social-links a:hover {
+    color: #f75c4c;
+    font-size: 2rem;
+}
+
+/* Blinking Cursor for Dynamic Text */
+#dynamicText::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Hero Image */
+.hero-image img {
+    margin-left: 250px;
+    max-width: 35%;
+    border-radius: 50%;
+    padding: 5px;
+    border: 5px #f75c4c solid;
+}
+
+/* About, Projects, Skills, Achievements Sections */
+.about-section,
+.projects-section,
+.skills-section,
+.achievements-section {
+    
+    padding: 60px 0; /* Increased padding for better spacing */
+}
+
+.about-section {
+    background-color: transparent; /* Slightly different background color for distinction */
+}
+
+.section-title {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-content {
+    max-width: 100%;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: transparent;
+    padding: 60px 0;
+}
+
+.project-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    border: 1px solid #ddd; /* Optional: border around each project item */
+    border-radius: 8px; /* Optional: rounded corners */
+    overflow: hidden;
+    background: #f9f9f9; /* Background color for project items */
+}
+
+.project-item a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.project-image {
+    max-width: 35%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-right: 1px solid #ddd; /* Optional: border between image and text */
+}
+
+.project-description {
+    padding: 20px;
+    max-width: 60%;
+}
+
+.project-description h3 {
+    font-size: 1.5rem;
+    color: #f75c4c;
+    margin-bottom: 10px;
+}
+
+.project-description h3 a {
+    color: #f75c4c;
+    text-decoration: none;
+}
+
+.project-description h3 a:hover {
+    color: #e64a19; /* Darker shade on hover */
+}
+
+.project-description p {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.project-description ul {
+    list-style-type: disc;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.project-description ul li {
+    font-size: 1rem;
+    color: #666;
+}
+
+.project-item:hover {
+    background: #e0dfdf; /* Light background on hover */
+}
+
+.skills-section {
+    padding: 3rem 0;
+    /* background: #f9f9f9;  Light background to distinguish the section */
+}
+
+.skills-category {
+    margin-bottom: 2rem;
+}
+
+.skills-category h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.skills-category h3:after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background-color: #f75c4c; /* Accent color */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    flex: 1 1 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill-logo {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.skill-content {
+    flex: 1;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+}
+
+.progress {
+    height: 100%;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: width 0.6s ease;
+}
+
+.progress-bar .progress:hover {
+    opacity: 0.9;
+}
+
+/* Individual Colors for Icons */
+.skill-item .fa-cuttlefish {
+    color: #A8B9CC; /* C language: light blue */
+}
+
+.skill-item .fa-java {
+    color: #007396; /* Java: blue */
+}
+
+.skill-item .fa-database {
+    color: #F29111; /* SQL: orange */
+}
+
+.skill-item .fa-react {
+    color: #61DBFB; /* ReactJS: light blue */
+}
+
+.skill-item .fa-html5 {
+    color: #E34C26; /* HTML5: orange */
+}
+
+.skill-item .fa-css3-alt {
+    color: #1572B6; /* CSS3: blue */
+}
+
+.skill-item .fa-js {
+    color: #F7DF1E; /* JavaScript: yellow */
+}
+
+.skill-item .fa-git-alt {
+    color: #F05032; /* Git: orange-red */
+}
+
+.skill-item .fa-figma {
+    color: #F24E1E; /* Figma: red/orange */
+}
+
+.skill-item .fa-mobile-alt {
+    color: #3DDC84; /* Android Studio: green */
+}
+
+.skill-item .fa-adobe {
+    color: #FF0000; /* Adobe: red */
+}
+
+.skill-item .fa-uncharted {
+    color: #0E1128; /* Unreal Engine: dark blue */
+}
+
+.skill-item .fa-drafting-compass {
+    color: #0696D7; /* AutoCAD: light blue */
+}
+
+/* Custom Progress Bar Colors */
+.skill-item .progress:nth-child(1) {
+    background: linear-gradient(90deg, #A8B9CC, #6A8FA4);
+}
+
+.skill-item .progress:nth-child(2) {
+    background: linear-gradient(90deg, #007396, #005f73);
+}
+
+.skill-item .progress:nth-child(3) {
+    background: linear-gradient(90deg, #F29111, #E15E00);
+}
+.skill-logo {
+    width: 50px; /* Adjust the size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+/* Achievements Section */
+.achievements-section {
+    /*background: linear-gradient(135deg, #f5f5f5, #e0e0e0);*/
+    padding: 60px 0;
+    text-align: center;
+}
+
+.achievements-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.achievement-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.achievement-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 450px;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    text-decoration: none; /* Ensure no underlines */
+}
+
+.achievement-link {
+    color: inherit; /* Use parent color */
+    text-decoration: none; /* Remove underline */
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-icon {
+    background: #f75c4c;
+    color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.achievement-content {
+    margin-left: 100px;
+}
+
+.achievement-content h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.achievement-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+.contact-section {
+    padding: 50px 0;
+    /*background: #f9f9f9;*/
+}
+
+.contact-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.contact-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #f75c4c;
+    outline: none;
+}
+
+.submit-btn {
+    background: #f75c4c;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #e64c4c;
+}
+
+
+
+
+
+/* Footer */
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    padding: 0 10px;
+}
+
+
+
+.footer-center {
+    text-align: center;
+    margin-left: 380px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+
+
+.footer-social-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.footer-social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    color: #f75c4c;
+}
+
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #424242;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    z-index: 1000;
+}
+
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
